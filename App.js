@@ -2,40 +2,17 @@ import * as React from 'react';
 import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-
-function Home() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home Screen</Text>
-    </View>
-  );
-}
-
-function BoxNumber() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Box Number Screen</Text>
-    </View>
-  );
-}
-
-function HardWay() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Hard Way Screen</Text>
-    </View>
-  );
-}
-
-function PassLine() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Pass Line Screen</Text>
-    </View>
-  );
-}
+import { createStackNavigator } from '@react-navigation/stack';
+import Home from './screens/HomeScreen';
+import BoxNumber from './screens/BoxNumber';
+import HardWay from './screens/HardWay';
+import PassLine from './screens/PassLine';
+import Details from './screens/Details';
+import Header from './components/header';
+import styles from './components/styles';
 
 const Drawer = createDrawerNavigator();
+const Stack = createStackNavigator();
 
 function MyDrawer() {
   return (
@@ -61,6 +38,45 @@ function MyDrawer() {
         options={{ drawerLabel: 'Pass Line' }}
       />
     </Drawer.Navigator>
+  );
+}
+
+function MyStack() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: {
+          height: 120,
+        },
+        headerTitleStyle: {
+          alignSelf: 'center',
+        },
+        header: props => <Header {...props} />,
+      }}
+    >
+      <Stack.Screen
+        name="StackHome"
+        component={Home}
+        options={({ navigation }) => ({
+          headerTitle: () => (
+            <View style={styles.headerTitle}>
+              <Image
+                source={require('./assets/png/logo-no-background.png')}
+                style={styles.logo}
+              />
+            </View>
+          ),
+        })}
+      />
+      <Stack.Screen
+        name="Details"
+        component={Details}
+        options={{
+          headerTitle: 'Details',
+          headerTitleAlign: 'center',
+        }}
+      />
+    </Stack.Navigator>
   );
 }
 
