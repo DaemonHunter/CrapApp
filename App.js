@@ -1,20 +1,73 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { View, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
-export default function App() {
+function Home() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Home Screen</Text>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+function BoxNumber() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Box Number Screen</Text>
+    </View>
+  );
+}
+
+function HardWay() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Hard Way Screen</Text>
+    </View>
+  );
+}
+
+function PassLine() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Pass Line Screen</Text>
+    </View>
+  );
+}
+
+const Drawer = createDrawerNavigator();
+
+function MyDrawer() {
+  return (
+    <Drawer.Navigator useLegacyImplementation initialRouteName="Feed">
+      <Drawer.Screen
+        name="Home"
+        component={Home}
+        options={{ drawerLabel: 'Home' }}
+      />
+      <Drawer.Screen
+        name="Box Number"
+        component={BoxNumber}
+        options={{ drawerLabel: 'Box Number' }}
+      />
+      <Drawer.Screen
+        name="HardWay"
+        component={HardWay}
+        options={{ drawerLabel: 'Hard Way' }}
+      />
+      <Drawer.Screen
+        name="Pass Line"
+        component={PassLine}
+        options={{ drawerLabel: 'Pass Line' }}
+      />
+    </Drawer.Navigator>
+  );
+}
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <MyDrawer />
+    </NavigationContainer>
+  );
+}
