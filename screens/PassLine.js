@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableOpacity, Keyboard } from 'react-native';
 import Header from '../components/header';
-//import { styles } from '../components/styles';
+import { styles } from '../components/styles';
 
 const PassLinePayoutCalculatorScreen = () => {
-  const [betAmount, setBetAmount] = useState('');
-  const [odds, setOdds] = useState('');
+  const [betAmount, setBetAmount] = useState('0');
+  const [odds, setOdds] = useState('0');
   const [point, setPoint] = useState('');
-  const [payout, setPayout] = useState('');
+  const [payout, setPayout] = useState('0');
 
   const calculatePayout = () => {
     let amount = parseFloat(betAmount);
@@ -79,9 +79,9 @@ const PassLinePayoutCalculatorScreen = () => {
           <Text style={styles.buttonText}>Calculate Payout</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => {
-          setBetAmount('');
-          setOdds('');
-          setPayout('');
+          setBetAmount('0');
+          setOdds('0');
+          setPayout('0');
           setPoint('');
         }} style={styles.resetButton}>
           <Text style={styles.resetButtonText}>Reset</Text>
@@ -93,105 +93,5 @@ const PassLinePayoutCalculatorScreen = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-  },
-  heading: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    marginVertical: 20,
-  },
-  inputContainer: {
-    alignItems: 'center',
-  },
-  textInputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    borderBottomWidth: 1,
-    borderColor: '#ccc',
-    width: '80%',
-    marginVertical: 10,
-  },
-  inputLabel: {
-    fontSize: 28,
-    alignItems: 'center',
-  },
-  textInput: {
-    fontSize: 28,
-    width: '50%',
-    alignItems: 'center',
-  },
-  button: {
-    backgroundColor: 'green',
-    padding: 10,
-    borderRadius: 5,
-    marginVertical: 20,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  resetButton: {
-    backgroundColor: 'red',
-    padding: 10,
-    borderRadius: 5,
-    marginVertical: 20,
-  },
-  resetButtonText: {
-    color: 'white',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  payout: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginTop: 20,
-  },
-  payoutDescription: {
-    fontSize: 16,
-    marginVertical: 5,
-  },
-  payoutAmount: {
-    fontSize: 28,
-    fontWeight: 'bold',
-  },
-  pointContainer: {
-  alignItems: 'center',
-  justifyContent: 'center',
-  marginVertical: 10,
-},
-pointButtonContainer: {
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  marginHorizontal: 10,
-},
-pointButton: {
-  backgroundColor: '#ccc',
-  padding: 10,
-  borderRadius: 5,
-  width: 50,
-  height: 50,
-  justifyContent: 'center',
-  alignItems: 'center',
-  marginHorizontal: 5,
-},
-pointButtonText: {
-  color: '#fff',
-  fontSize: 20,
-  fontWeight: 'bold',
-  textAlign: 'center',
-},
-pointButtonActive: {
-  backgroundColor: 'green',
-},
-});
-
 
 export default PassLinePayoutCalculatorScreen;
