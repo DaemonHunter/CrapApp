@@ -9,6 +9,12 @@ const PassLinePayoutCalculatorScreen = () => {
   const [point, setPoint] = useState('');
   const [payout, setPayout] = useState('0');
 
+
+   const handlePointPress = (point) => {
+    setPoint(point);
+    Keyboard.dismiss();
+  }
+
   const calculatePayout = () => {
     let amount = parseFloat(betAmount);
     let oddsNum = parseInt(odds);
@@ -51,31 +57,28 @@ const PassLinePayoutCalculatorScreen = () => {
             style={styles.textInput}
         />
           <View style={styles.pointContainer}>
-            <Text style={styles.label}>Enter Current Point:</Text>
+            <Text style={styles.label}>Current Point:</Text>
             <View style={[styles.pointButtonContainer, { flexDirection: 'row' }]}>
-              <TouchableOpacity style={[styles.pointButton, point === '4' && styles.pointButtonActive]} onPress={() => setPoint('4')}>
-                <Text style={styles.pointButtonText}>4</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={[styles.pointButton, point === '5' && styles.pointButtonActive]} onPress={() => setPoint('5')}>
-                <Text style={styles.pointButtonText}>5</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={[styles.pointButton, point === '6' && styles.pointButtonActive]} onPress={() => setPoint('6')}>
-                <Text style={styles.pointButtonText}>6</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={[styles.pointButton, point === '8' && styles.pointButtonActive]} onPress={() => setPoint('8')}>
-                <Text style={styles.pointButtonText}>8</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={[styles.pointButton, point === '9' && styles.pointButtonActive]} onPress={() => setPoint('9')}>
-                <Text style={styles.pointButtonText}>9</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={[styles.pointButton, point === '10' && styles.pointButtonActive]} onPress={() => setPoint('10')}>
-                <Text style={styles.pointButtonText}>10</Text>
-              </TouchableOpacity>
+              <TouchableOpacity style={[styles.pointButton, point === '4' && styles.pointButtonActive]} onPress={() => handlePointPress('4')}>
+        <Text style={styles.pointButtonText}>4</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={[styles.pointButton, point === '5' && styles.pointButtonActive]} onPress={() => handlePointPress('5')}>
+        <Text style={styles.pointButtonText}>5</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={[styles.pointButton, point === '6' && styles.pointButtonActive]} onPress={() => handlePointPress('6')}>
+        <Text style={styles.pointButtonText}>6</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={[styles.pointButton, point === '8' && styles.pointButtonActive]} onPress={() => handlePointPress('8')}>
+        <Text style={styles.pointButtonText}>8</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={[styles.pointButton, point === '9' && styles.pointButtonActive]} onPress={() => handlePointPress('9')}>
+        <Text style={styles.pointButtonText}>9</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={[styles.pointButton, point === '10' && styles.pointButtonActive]} onPress={() => handlePointPress('10')}>
+        <Text style={styles.pointButtonText}>10</Text>
+      </TouchableOpacity>
             </View>
           </View>
-        <TouchableOpacity onPress={calculatePayout} style={styles.button}>
-          <Text style={styles.buttonText}>Calculate Payout</Text>
-        </TouchableOpacity>
         <TouchableOpacity onPress={() => {
           setBetAmount('0');
           setOdds('0');
