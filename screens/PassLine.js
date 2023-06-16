@@ -41,8 +41,6 @@ const PassLinePayoutCalculatorScreen = () => {
             onChangeText={(value) => setBetAmount(value)}
             style={styles.textInput}
           />
-        </View>
-        <View style={styles.inputContainer}>
           <Text style={styles.inputLabel}>Enter Odds Bet Amount:</Text>
           <TextInput
             textAlign='center'
@@ -51,7 +49,7 @@ const PassLinePayoutCalculatorScreen = () => {
             value={odds}
             onChangeText={(value) => setOdds(value)}
             style={styles.textInput}
-          />
+        />
           <View style={styles.pointContainer}>
             <Text style={styles.label}>Enter Current Point:</Text>
             <View style={[styles.pointButtonContainer, { flexDirection: 'row' }]}>
