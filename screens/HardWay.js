@@ -1,32 +1,31 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Keyboard } from 'react-native';
 import Header from '../components/header';
 
 const HardWayPayout = ({ navigation }) => {
   const [betAmount, setBetAmount] = useState('');
   const [numberHit, setNumberHit] = useState('');
-  const [payout, setPayout] = useState('');
+  const [payout, setPayout] = useState('0');
 
-  const calculatePayout = (betAmount, numberHit) => {
-    if (!betAmount || !numberHit) {
-      return '';
-    }
-
-    let payoutMultiplier = 0;
-    if (numberHit === '6' || numberHit === '8') {
-      payoutMultiplier = 10;
-    } else if (numberHit === '4' || numberHit === '10') {
-      payoutMultiplier = 8;
-    }
-
-    const payout = parseFloat(betAmount) * payoutMultiplier;
-    return payout.toFixed(2);
+  const calculatePayout = () => {
+    const payoutAmount = parseFloat(betAmount) * getHardWayPayout(numberHit);
+    setPayout(payoutAmount.toFixed(2));
+    Keyboard.dismiss();
   };
 
-  const handleCalculate = () => {
-    const payout = calculatePayout(betAmount, numberHit);
-    setPayout(payout);
-  };
+  const getHardWayPayout = (numberHit, betAmount) => {
+  switch (numberHit) {
+    case '4':
+    case '10':
+      return betAmount * 7;
+    case '6':
+    case '8':
+      return betAmount * 9;
+    default:
+      return 0;
+  }
+};
+
 
   const handleReset = () => {
     setBetAmount('');
@@ -67,18 +66,11 @@ const HardWayPayout = ({ navigation }) => {
           </View>
         </View>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={handleCalculate}>
-          <Text style={styles.buttonText}>Calculate Payout</Text>
-        </TouchableOpacity>
         <TouchableOpacity style={styles.resetButton} onPress={handleReset}>
           <Text style={styles.resetButtonText}>Reset</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.resultContainer}>
-        {payout !== '' && (
-          <Text style={styles.result}>Payout with initial bet: ${payout}</Text>
-        )}
-      </View>
+          <Text style={styles.payout}>Hard Way Payout: ${Math.floor(getHardWayPayout(numberHit, betAmount))}</Text>
     </View>
   );
 };
@@ -199,6 +191,11 @@ pointButtonContainer: {
   justifyContent: 'space-between',
   alignItems: 'center',
   marginHorizontal: 10,
+},
+payout: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginTop: 20,
 },
 pointButton: {
   backgroundColor: '#ccc',
