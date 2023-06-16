@@ -14,6 +14,16 @@ const BoxNumberPayoutCalculator = () => {
     Keyboard.dismiss();
   };
 
+  const handleBoxPress = (number) => {
+    setBoxNumber(number);
+    Keyboard.dismiss();
+  };
+
+  const handleBetTypePress = (type) => {
+    setBetType(type);
+    Keyboard.dismiss();
+  };
+
   const getBoxNumberPayout = (betType, boxNumber) => {
     switch (betType) {
       case 'Place':
@@ -78,38 +88,38 @@ const BoxNumberPayoutCalculator = () => {
       <View style={styles.pointContainer}>
         <Text style={styles.label}>Number Hit:</Text>
         <View style={[styles.pointButtonContainer, { flexDirection: 'row' }]}>
-          <TouchableOpacity style={[styles.pointButton, boxNumber === '4' && styles.pointButtonActive]} onPress={() => setBoxNumber('4')}>
-            <Text style={styles.pointButtonText}>4</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={[styles.pointButton, boxNumber === '5' && styles.pointButtonActive]} onPress={() => setBoxNumber('5')}>
-            <Text style={styles.pointButtonText}>5</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={[styles.pointButton, boxNumber === '6' && styles.pointButtonActive]} onPress={() => setBoxNumber('6')}>
-            <Text style={styles.pointButtonText}>6</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={[styles.pointButton, boxNumber === '8' && styles.pointButtonActive]} onPress={() => setBoxNumber('8')}>
-            <Text style={styles.pointButtonText}>8</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={[styles.pointButton, boxNumber === '9' && styles.pointButtonActive]} onPress={() => setBoxNumber('9')}>
-            <Text style={styles.pointButtonText}>9</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={[styles.pointButton, boxNumber === '10' && styles.pointButtonActive]} onPress={() => setBoxNumber('10')}>
-            <Text style={styles.pointButtonText}>10</Text>
-          </TouchableOpacity>
+          <TouchableOpacity style={[styles.pointButton, boxNumber === '4' && styles.pointButtonActive]} onPress={() => handleBoxPress('4')}>
+        <Text style={styles.pointButtonText}>4</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={[styles.pointButton, boxNumber === '5' && styles.pointButtonActive]} onPress={() => handleBoxPress('5')}>
+        <Text style={styles.pointButtonText}>5</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={[styles.pointButton, boxNumber === '6' && styles.pointButtonActive]} onPress={() => handleBoxPress('6')}>
+        <Text style={styles.pointButtonText}>6</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={[styles.pointButton, boxNumber === '8' && styles.pointButtonActive]} onPress={() => handleBoxPress('8')}>
+        <Text style={styles.pointButtonText}>8</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={[styles.pointButton, boxNumber === '9' && styles.pointButtonActive]} onPress={() => handleBoxPress('9')}>
+        <Text style={styles.pointButtonText}>9</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={[styles.pointButton, boxNumber === '10' && styles.pointButtonActive]} onPress={() => handleBoxPress('10')}>
+        <Text style={styles.pointButtonText}>10</Text>
+      </TouchableOpacity>
         </View>
       </View>
       <View style={styles.betTypeContainer}>
         <Text style={styles.label}>Bet Type:</Text>
         <View style={[styles.betTypeButtonContainer, { flexDirection: 'row' }]}>
-          <TouchableOpacity style={[styles.betButton, betType === 'Lay' && styles.pointButtonActive]} onPress={() => setBetType('Lay')}>
-            <Text style={styles.pointButtonText}>Lay</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={[styles.betButton, betType === 'Place' && styles.pointButtonActive]} onPress={() => setBetType('Place')}>
-            <Text style={styles.pointButtonText}>Place</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={[styles.betButton, betType === 'Buy' && styles.pointButtonActive]} onPress={() => setBetType('Buy')}>
-            <Text style={styles.pointButtonText}>Buy</Text>
-          </TouchableOpacity>
+          <TouchableOpacity style={[styles.betButton, betType === 'Lay' && styles.pointButtonActive]} onPress={() => handleBetTypePress('Lay')}>
+          <Text style={styles.pointButtonText}>Lay</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.betButton, betType === 'Place' && styles.pointButtonActive]} onPress={() => handleBetTypePress('Place')}>
+          <Text style={styles.pointButtonText}>Place</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.betButton, betType === 'Buy' && styles.pointButtonActive]} onPress={() => handleBetTypePress('Buy')}>
+          <Text style={styles.pointButtonText}>Buy</Text>
+        </TouchableOpacity>
         </View>
       </View>
       <TouchableOpacity onPress={() => {
