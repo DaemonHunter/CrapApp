@@ -6,12 +6,18 @@ const HardWayPayout = ({ navigation }) => {
   const [betAmount, setBetAmount] = useState('');
   const [numberHit, setNumberHit] = useState('');
   const [payout, setPayout] = useState('0');
+  
 
   const calculatePayout = () => {
     const payoutAmount = parseFloat(betAmount) * getHardWayPayout(numberHit);
     setPayout(payoutAmount.toFixed(2));
     Keyboard.dismiss();
   };
+
+  const handlePress = (number) => {
+    setNumberHit(number);
+    Keyboard.dismiss();
+  }
 
   const getHardWayPayout = (numberHit, betAmount) => {
   switch (numberHit) {
@@ -51,18 +57,18 @@ const HardWayPayout = ({ navigation }) => {
         <View style={styles.pointContainer}>
           <Text style={styles.label}>Number Hit:</Text>
           <View style={[styles.pointButtonContainer, { flexDirection: 'row' }]}>
-            <TouchableOpacity style={[styles.pointButton, numberHit === '4' && styles.pointButtonActive]} onPress={() => setNumberHit('4')}>
-              <Text style={styles.pointButtonText}>4</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={[styles.pointButton, numberHit === '6' && styles.pointButtonActive]} onPress={() => setNumberHit('6')}>
-              <Text style={styles.pointButtonText}>6</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={[styles.pointButton, numberHit === '8' && styles.pointButtonActive]} onPress={() => setNumberHit('8')}>
-              <Text style={styles.pointButtonText}>8</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={[styles.pointButton, numberHit === '10' && styles.pointButtonActive]} onPress={() => setNumberHit('10')}>
-              <Text style={styles.pointButtonText}>10</Text>
-            </TouchableOpacity>
+            <TouchableOpacity style={[styles.pointButton, numberHit === '4' && styles.pointButtonActive]} onPress={() => handlePress('4')}>
+        <Text style={styles.pointButtonText}>4</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={[styles.pointButton, numberHit === '6' && styles.pointButtonActive]} onPress={() => handlePress('6')}>
+        <Text style={styles.pointButtonText}>6</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={[styles.pointButton, numberHit === '8' && styles.pointButtonActive]} onPress={() => handlePress('8')}>
+        <Text style={styles.pointButtonText}>8</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={[styles.pointButton, numberHit === '10' && styles.pointButtonActive]} onPress={() => handlePress('10')}>
+        <Text style={styles.pointButtonText}>10</Text>
+      </TouchableOpacity>
           </View>
         </View>
       <View style={styles.buttonContainer}>
