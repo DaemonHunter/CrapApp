@@ -137,16 +137,6 @@ const BoxNumberPayoutCalculator = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-  },
-  heading: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    marginVertical: 20,
-  },
   inputContainer: {
     alignItems: 'center',
     marginVertical: 30,
