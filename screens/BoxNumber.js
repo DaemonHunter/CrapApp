@@ -181,11 +181,21 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginVertical: 5,
   },
+  label: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginVertical: 10,
+  },
   payoutAmount: {
     fontSize: 20,
     fontWeight: 'bold',
   },
   pointContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: 10,
+  },
+  betTypeContainer: {
     alignItems: 'center',
     justifyContent: 'center',
     marginVertical: 10,
