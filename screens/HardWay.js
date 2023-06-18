@@ -24,10 +24,10 @@ const HardWayScreen = ({ navigation }) => {
   switch (numberHit) {
     case '4':
     case '10':
-      return betAmount * 7/1;
+      return betAmount * (7/1);
     case '6':
     case '8':
-      return betAmount * 9/1;
+      return betAmount * (9/1);
     default:
       return 0;
   }
@@ -46,15 +46,14 @@ const HardWayScreen = ({ navigation }) => {
     <View style={styles.container}>
       <Header navigation={navigation} />
       <View style={styles.inputContainer}>
-          <Text style={styles.inputLabel}>Enter Bet Amount:</Text>
-          <TextInput
-            textAlign='center'
-            placeholder="0"
-            keyboardType="numeric"
-            value={betAmount}
-            onChangeText={(value) => setBetAmount(value)}
-            style={styles.textInput}
-          />
+      <TextInput
+        textAlign='center'
+        placeholder="Enter Bet Amount"
+        keyboardType="numeric"
+        value={betAmount}
+        onChangeText={(value) => setBetAmount(value)}
+        style={styles.textInput}
+      />
         </View>
         <View style={styles.pointContainer}>
           <Text style={styles.label}>Number Hit:</Text>

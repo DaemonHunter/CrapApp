@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     marginHorizontal: 5,
     padding: 10,
-    width: 150,
+    width: 125,
   },
   betTypeButtonContainer: {
     alignItems: 'center',

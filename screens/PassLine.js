@@ -38,36 +38,36 @@ const calculatePassPayout = () => {
 };
 
 
-const getPassPayout = (betType, betAmount) => {
+const getPassPayout = (betType, betAmount, point) => {
   let payout;
   switch (betType) {
     case 'DONT_Pass':
-      switch (boxNumber) {
+      switch (point) {
         case '4':
         case '10':
-          return betAmount * 9/5;
+          return betAmount * (9/5);
         case '5':
         case '9':
-          return betAmount * 7/5;
+          return betAmount * (7/5);
         case '6':
         case '8':
-          return betAmount * 7/6;
+          return betAmount * (7/6);
         default:
           return 0;
       }
     case 'Pass':
-      switch (boxNumber) {
+      switch (point) {
         case '4':
         case '10':
-          payout = betAmount * 2/1;
+          payout = betAmount * (2/1);
           return payout;
         case '5':
         case '9':
-          payout = betAmount * 3/2;
+          payout = betAmount * (3/2);
           return payout;
         case '6':
         case '8':
-          payout = betAmount * 6/5;
+          payout = betAmount * (6/5);
           return payout;
         default:
           return 0;
@@ -83,14 +83,13 @@ return (
   <View style={styles.container}>
     <Header />
       <View style={styles.inputContainer}>
-        <Text style={styles.inputLabel}>Enter Odds Bet Amount:</Text>
-        <TextInput
-          textAlign='center'
-          placeholder="0"
-          keyboardType="numeric"
-          value={odds}
-          onChangeText={(value) => setOdds(value)}
-          style={styles.textInput}
+      <TextInput
+        textAlign='center'
+        placeholder="Enter Bet Amount"
+        keyboardType="numeric"
+        value={betAmount}
+        onChangeText={(value) => setBetAmount(value)}
+        style={styles.textInput}
       />
         <View style={styles.pointContainer}>
       <Text style={styles.label}>Number Hit:</Text>
@@ -127,15 +126,16 @@ return (
       </View>
     </View>
       <TouchableOpacity onPress={() => {
-        setBetAmount('0');
-        setOdds('0');
-        setPayout('0');
+        setBetAmount('');
+        setBetType('');
+        setOdds('');
+        setPayout('');
         setPoint('');
         Keyboard.dismiss();
       }} style={styles.resetButton}>
         <Text style={styles.resetButtonText}>Reset</Text>
       </TouchableOpacity>
-      <Text style={styles.payout}>Pass Line Odds Payout: ${Math.floor(parseFloat(passLinePayout))}</Text>
+      <Text style={styles.payout}>Pass Line Odds Payout: ${Math.floor(getPassPayout(betType, parseFloat(odds), point))}</Text>
     </View>
   </View>
 );
