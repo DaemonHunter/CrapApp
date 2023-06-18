@@ -31,13 +31,13 @@ const BoxNumberPayoutCalculator = () => {
         switch (boxNumber) {
           case '4':
           case '10':
-            return betAmount * 1.8;
+            return betAmount * 9/5;
           case '5':
           case '9':
-            return betAmount * 1.4;
+            return betAmount * 7/5;
           case '6':
           case '8':
-            return betAmount * 1.16;
+            return betAmount * 7/6;
           default:
             return 0;
         }
