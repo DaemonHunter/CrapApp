@@ -45,13 +45,16 @@ const BoxNumberScreen = () => {
         switch (boxNumber) {
           case '4':
           case '10':
-            return betAmount * 2 * 0.95;
+            let payout = betAmount * 2;
+            return payout - (payout * 0.05);
           case '5':
           case '9':
-            return betAmount * 1.5 * 0.95;
+            let payout = betAmount * 3/2;
+            return payout - (payout * 0.05);
           case '6':
           case '8':
-            return betAmount * 1.2 * 0.95;
+            let payout = betAmount * 6/5;
+            return payout - (payout * 0.05);
           default:
             return 0;
         }
@@ -59,13 +62,13 @@ const BoxNumberScreen = () => {
         switch (boxNumber) {
           case '4':
           case '10':
-            return betAmount * .5;
+            return betAmount * 1/2 * 0.95;
           case '5':
           case '9':
-            return betAmount * .66;
+            return betAmount * 2/3 * 0.95;
           case '6':
           case '8':
-            return betAmount * .83;
+            return betAmount * 5/6 * 0.95;
           default:
             return 0;
         }
