@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, TextInput, TouchableOpacity, Keyboard } from 'r
 import Header from '../components/header';
 import { styles } from '../components/styles';
 
-const PassLinePayoutCalculatorScreen = () => {
+const PassLineScreen = () => {
   const [betAmount, setBetAmount] = useState('0');
   const [odds, setOdds] = useState('0');
   const [point, setPoint] = useState('');
@@ -15,17 +15,17 @@ const PassLinePayoutCalculatorScreen = () => {
     Keyboard.dismiss();
   }
 
-  const calculatePayout = () => {
+  const calculatePassPayout = () => {
     let amount = parseFloat(betAmount);
     let oddsNum = parseInt(odds);
     let payoutNum = amount;
 
     if (point === '4' || point === '10') {
-      payoutNum = oddsNum * 2;
+      payoutNum = oddsNum * 2/1;
     } else if (point === '5' || point === '9') {
-      payoutNum = oddsNum * 1.5;
+      payoutNum = oddsNum * 3/2;
     } else if (point === '6' || point === '8') {
-      payoutNum = oddsNum * 1.2;
+      payoutNum = oddsNum * 6/5;
     }
 
     setPayout(payoutNum.toFixed(2));
@@ -96,4 +96,4 @@ const PassLinePayoutCalculatorScreen = () => {
   );
 };
 
-export default PassLinePayoutCalculatorScreen;
+export default PassLineScreen;

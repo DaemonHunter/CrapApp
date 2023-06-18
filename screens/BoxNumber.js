@@ -3,7 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, Keyboard } from 'r
 import Header from '../components/header';
 import { styles } from '../components/styles';
 
-const BoxNumberPayoutCalculator = () => {
+const BoxNumberScreen = () => {
   const [betAmount, setBetAmount] = useState('');
   const [boxNumber, setBoxNumber] = useState('');
   const [payout, setPayout] = useState('');
@@ -138,4 +138,4 @@ const BoxNumberPayoutCalculator = () => {
   );
 };
 
-export default BoxNumberPayoutCalculator;
+export default BoxNumberScreen;

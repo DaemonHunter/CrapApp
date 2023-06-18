@@ -3,14 +3,14 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, Keyboard } from 'r
 import Header from '../components/header';
 import { styles } from '../components/styles';
 
-const HardWayPayout = ({ navigation }) => {
+const HardWayScreen = ({ navigation }) => {
   const [betAmount, setBetAmount] = useState('');
   const [numberHit, setNumberHit] = useState('');
   const [payout, setPayout] = useState('0');
   
 
   const calculatePayout = () => {
-    const payoutAmount = parseFloat(betAmount) * getHardWayPayout(numberHit);
+    const payoutAmount = parseFloat(betAmount) * getHardWayScreen(numberHit);
     setPayout(payoutAmount.toFixed(2));
     Keyboard.dismiss();
   };
@@ -20,14 +20,14 @@ const HardWayPayout = ({ navigation }) => {
     Keyboard.dismiss();
   }
 
-  const getHardWayPayout = (numberHit, betAmount) => {
+  const getHardWayScreen = (numberHit, betAmount) => {
   switch (numberHit) {
     case '4':
     case '10':
-      return betAmount * 7;
+      return betAmount * 7/1;
     case '6':
     case '8':
-      return betAmount * 9;
+      return betAmount * 9/1;
     default:
       return 0;
   }
@@ -78,9 +78,9 @@ const HardWayPayout = ({ navigation }) => {
           <Text style={styles.resetButtonText}>Reset</Text>
         </TouchableOpacity>
       </View>
-          <Text style={styles.payout}>Hard Way Payout: ${Math.floor(getHardWayPayout(numberHit, betAmount))}</Text>
+          <Text style={styles.payout}>Hard Way Payout: ${Math.floor(getHardWayScreen(numberHit, betAmount))}</Text>
     </View>
   );
 };
 
-export default HardWayPayout;
+export default HardWayScreen;
