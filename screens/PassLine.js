@@ -84,6 +84,7 @@ const PassLinePayoutCalculatorScreen = () => {
           setOdds('0');
           setPayout('0');
           setPoint('');
+          Keyboard.dismiss();
         }} style={styles.resetButton}>
           <Text style={styles.resetButtonText}>Reset</Text>
         </TouchableOpacity>

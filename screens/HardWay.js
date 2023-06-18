@@ -38,6 +38,7 @@ const HardWayPayout = ({ navigation }) => {
     setBetAmount('');
     setNumberHit('');
     setPayout('');
+    Keyboard.dismiss();
   };
 
 

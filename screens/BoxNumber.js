@@ -128,6 +128,7 @@ const BoxNumberPayoutCalculator = () => {
         setBoxNumber('');
         setPayout('');
         setBetType('');
+        Keyboard.dismiss();
       }} style={styles.resetButton}>
         <Text style={styles.resetButtonText}>Reset</Text>
       </TouchableOpacity>
