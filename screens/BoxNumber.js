@@ -6,12 +6,12 @@ import { styles } from '../components/styles';
 const BoxNumberScreen = () => {
   const [betAmount, setBetAmount] = useState('');
   const [boxNumber, setBoxNumber] = useState('');
-  const [payout, setPayout] = useState('');
+  const [finalPayout, setFinalPayout] = useState('');
   const [betType, setBetType] = useState('');
 
   const calculatePayout = () => {
-    const payoutAmount = parseFloat(betAmount) * getBoxNumberPayout(betType, boxNumber);
-    setPayout(payoutAmount.toFixed(2));
+    const payoutAmount = parseFloat(betAmount) * getBoxNumberPayout(betType, boxNumber, betAmount);
+    setFinalPayout(payoutAmount.toFixed(2));
     Keyboard.dismiss();
   };
 
@@ -25,7 +25,8 @@ const BoxNumberScreen = () => {
     Keyboard.dismiss();
   };
 
-  const getBoxNumberPayout = (betType, boxNumber) => {
+  const getBoxNumberPayout = (betType, boxNumber, betAmount) => {
+    let payout;
     switch (betType) {
       case 'Place':
         switch (boxNumber) {
@@ -45,15 +46,15 @@ const BoxNumberScreen = () => {
         switch (boxNumber) {
           case '4':
           case '10':
-            let payout = betAmount * 2;
+            payout = betAmount * 2;
             return payout - (payout * 0.05);
           case '5':
           case '9':
-            let payout = betAmount * 3/2;
+            payout = betAmount * 3/2;
             return payout - (payout * 0.05);
           case '6':
           case '8':
-            let payout = betAmount * 6/5;
+            payout = betAmount * 6/5;
             return payout - (payout * 0.05);
           default:
             return 0;
@@ -129,13 +130,13 @@ const BoxNumberScreen = () => {
       <TouchableOpacity onPress={() => {
         setBetAmount('');
         setBoxNumber('');
-        setPayout('');
+        setFinalPayout('');
         setBetType('');
         Keyboard.dismiss();
       }} style={styles.resetButton}>
         <Text style={styles.resetButtonText}>Reset</Text>
       </TouchableOpacity>
-      <Text style={styles.payout}>Box Number Payout: ${Math.floor(getBoxNumberPayout(betType, boxNumber))}</Text>
+      <Text style={styles.payout}>Box Number Payout: ${Math.floor(getBoxNumberPayout(betType, boxNumber, betAmount))}</Text>
     </View>
   </View>
   );
