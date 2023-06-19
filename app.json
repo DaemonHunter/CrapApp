@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "CrapApp",
-    "slug": "CrapApp",
+    "slug": "crapapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/png/logo-no-background.png",
@@ -21,10 +21,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/png/logo-no-background.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.daemonhunter.crapapp"
     },
     "web": {
       "favicon": "./assets/png/logo-no-background.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "97776c8f-21fe-4c15-ac48-c8ad074bb8b0"
+      }
+    },
+    "owner": "daemonhunter"
   }
 }
