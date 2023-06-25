@@ -3,14 +3,14 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, Keyboard } from 'r
 import Header from '../components/header';
 import { styles } from '../components/styles';
 
-const HardWayScreen = ({ navigation }) => {
+const CandEScreen = ({ navigation }) => {
   const [betAmount, setBetAmount] = useState('');
   const [numberHit, setNumberHit] = useState('');
   const [payout, setPayout] = useState('');
   
 
   const calculatePayout = () => {
-    const payoutAmount = parseFloat(betAmount) * getHardWayScreen(numberHit);
+    const payoutAmount = parseFloat(betAmount) * getCandEScreen(numberHit);
     setPayout(payoutAmount.toFixed(2));
     Keyboard.dismiss();
   };
@@ -20,14 +20,14 @@ const HardWayScreen = ({ navigation }) => {
     Keyboard.dismiss();
   }
 
-  const getHardWayScreen = (numberHit, betAmount) => {
+  const getCandEScreen = (numberHit, betAmount) => {
   switch (numberHit) {
-    case '4':
-    case '10':
+    case '2':
+    case '3':
+    case '12':
       return betAmount * (7/1);
-    case '6':
-    case '8':
-      return betAmount * (9/1);
+    case '11':
+      return betAmount * (15/1);
     default:
       return 0;
   }
@@ -58,17 +58,17 @@ const HardWayScreen = ({ navigation }) => {
         <View style={styles.pointContainer}>
           <Text style={styles.label}>Number Hit:</Text>
           <View style={[styles.pointButtonContainer, { flexDirection: 'row' }]}>
-            <TouchableOpacity style={[styles.pointButton, numberHit === '4' && styles.pointButtonActive]} onPress={() => handlePress('4')}>
-        <Text style={styles.pointButtonText}>4</Text>
+            <TouchableOpacity style={[styles.pointButton, numberHit === '2' && styles.pointButtonActive]} onPress={() => handlePress('2')}>
+        <Text style={styles.pointButtonText}>2</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={[styles.pointButton, numberHit === '6' && styles.pointButtonActive]} onPress={() => handlePress('6')}>
-        <Text style={styles.pointButtonText}>6</Text>
+      <TouchableOpacity style={[styles.pointButton, numberHit === '3' && styles.pointButtonActive]} onPress={() => handlePress('3')}>
+        <Text style={styles.pointButtonText}>3</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={[styles.pointButton, numberHit === '8' && styles.pointButtonActive]} onPress={() => handlePress('8')}>
-        <Text style={styles.pointButtonText}>8</Text>
+      <TouchableOpacity style={[styles.pointButton, numberHit === '11' && styles.pointButtonActive]} onPress={() => handlePress('11')}>
+        <Text style={styles.pointButtonText}>11</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={[styles.pointButton, numberHit === '10' && styles.pointButtonActive]} onPress={() => handlePress('10')}>
-        <Text style={styles.pointButtonText}>10</Text>
+      <TouchableOpacity style={[styles.pointButton, numberHit === '12' && styles.pointButtonActive]} onPress={() => handlePress('12')}>
+        <Text style={styles.pointButtonText}>12</Text>
       </TouchableOpacity>
           </View>
         </View>
@@ -77,9 +77,9 @@ const HardWayScreen = ({ navigation }) => {
           <Text style={styles.resetButtonText}>Reset</Text>
         </TouchableOpacity>
       </View>
-          <Text style={styles.payout}>Hard Way Payout: ${Math.floor(getHardWayScreen(numberHit, betAmount))}</Text>
+          <Text style={styles.payout}>C&E Payout: ${Math.floor(getCandEScreen(numberHit, betAmount))}</Text>
     </View>
   );
 };
 
-export default HardWayScreen;
+export default CandEScreen;
