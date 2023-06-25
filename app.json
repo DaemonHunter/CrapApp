@@ -4,7 +4,7 @@
     "slug": "crapapp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/png/logo-no-background.png",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/png/logo-no-background.png",

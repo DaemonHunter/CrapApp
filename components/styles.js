@@ -40,6 +40,7 @@ export const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     backgroundColor: '#fff',
+    fontSize: 30,
     flex: 1,
   },
   hardWayItem: {
