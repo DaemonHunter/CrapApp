@@ -22,7 +22,8 @@
         "foregroundImage": "./assets/png/logo-no-background.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.daemonhunter.crapapp"
+      "package": "com.daemonhunter.crapapp",
+      "versionCode": 2
     },
     "web": {
       "favicon": "./assets/png/logo-no-background.png"
