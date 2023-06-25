@@ -15,6 +15,8 @@ Experience the game of craps like never before with Crap App. Enjoy the game, le
 3. **For Everyone**: Whether you're a beginner or a seasoned player, Crap App is a must-have tool for all craps enthusiasts.
 4. **Completely Private**: We respect your privacy. Crap App does not collect any personal data.
 
+Please note: Crap App is a tool designed to assist with calculating potential payouts in the game of craps. It does not encourage or participate in real money gambling and should not be used as a basis for such activities.
+
 ## Dev Install:
 
 Clone the repo to your workspace
@@ -24,5 +26,3 @@ after this is complete run
 ```npx expo start```
 Use your phone and download the Expo Go app
 Scan the QR code that was provided after starting expo
-
-Please note: Crap App is a tool designed to assist with calculating potential payouts in the game of craps. It does not encourage or participate in real money gambling and should not be used as a basis for such activities.
