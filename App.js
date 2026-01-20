@@ -17,7 +17,7 @@ const Stack = createStackNavigator();
 
 function MyDrawer() {
   return (
-    <Drawer.Navigator useLegacyImplementation initialRouteName="Home">
+    <Drawer.Navigator initialRouteName="Home">
       <Drawer.Screen
         name="Home"
         component={Home}

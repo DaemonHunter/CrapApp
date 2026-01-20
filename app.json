@@ -2,10 +2,11 @@
   "expo": {
     "name": "CrapApp",
     "slug": "crapapp",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "newArchEnabled": true,
     "splash": {
       "image": "./assets/png/logo-no-background.png",
       "resizeMode": "contain",
@@ -15,7 +16,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.daemonhunter.crapapp"
     },
     "android": {
       "adaptiveIcon": {
@@ -23,16 +25,21 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.daemonhunter.crapapp",
-      "versionCode": 2
+      "versionCode": 3
     },
     "web": {
-      "favicon": "./assets/png/logo-no-background.png"
+      "favicon": "./assets/png/logo-no-background.png",
+      "bundler": "metro"
     },
     "extra": {
       "eas": {
         "projectId": "97776c8f-21fe-4c15-ac48-c8ad074bb8b0"
       }
     },
-    "owner": "daemonhunter"
+    "owner": "daemonhunter",
+    "plugins": [
+      "expo-asset",
+      "expo-font"
+    ]
   }
 }
