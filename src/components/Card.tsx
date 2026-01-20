@@ -45,8 +45,8 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: COLORS.backgroundCard,
     borderRadius: SIZES.borderRadiusLarge,
-    padding: SPACING.lg,
-    marginVertical: SPACING.sm,
+    padding: SPACING.md,
+    marginVertical: SPACING.xs,
     marginHorizontal: SPACING.md,
     ...SHADOWS.card,
   },

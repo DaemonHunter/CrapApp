@@ -21,13 +21,13 @@ export function PayoutDisplay({ amount, label }: PayoutDisplayProps) {
 const styles = StyleSheet.create({
   card: {
     alignItems: 'center',
-    marginTop: SPACING.lg,
+    marginTop: SPACING.sm,
   },
   label: {
     color: COLORS.textSecondary,
     fontFamily: TYPOGRAPHY.label.fontFamily,
-    fontSize: TYPOGRAPHY.label.fontSize,
-    marginBottom: SPACING.sm,
+    fontSize: 14,
+    marginBottom: SPACING.xs,
     textTransform: 'uppercase',
     letterSpacing: 1,
   },

@@ -108,20 +108,20 @@ export const TYPOGRAPHY = {
 
 export const SIZES = {
   logo: {
-    width: 300,
-    height: 100,
+    width: 240,
+    height: 70,
   },
   header: {
-    height: 120,
+    height: 85,
   },
   pointButton: {
-    width: 50,
-    height: 50,
+    width: 46,
+    height: 46,
   },
   betButton: {
-    width: 125,
-    height: 50,
+    width: 110,
+    height: 44,
   },
-  borderRadius: 12,
-  borderRadiusLarge: 16,
+  borderRadius: 10,
+  borderRadiusLarge: 14,
 } as const;

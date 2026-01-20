@@ -55,11 +55,11 @@ export function ResetButton({ onPress }: ResetButtonProps) {
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: SPACING.lg,
+    marginVertical: SPACING.sm,
   },
   button: {
-    paddingVertical: SPACING.md,
-    paddingHorizontal: SPACING.xxl,
+    paddingVertical: SPACING.sm,
+    paddingHorizontal: SPACING.xl,
     borderRadius: SIZES.borderRadius,
     alignItems: 'center',
     justifyContent: 'center',
@@ -68,8 +68,8 @@ const styles = StyleSheet.create({
   buttonText: {
     color: COLORS.white,
     fontFamily: TYPOGRAPHY.button.fontFamily,
-    fontSize: TYPOGRAPHY.button.fontSize,
-    letterSpacing: TYPOGRAPHY.button.letterSpacing,
+    fontSize: 16,
+    letterSpacing: 1,
   },
 });
 

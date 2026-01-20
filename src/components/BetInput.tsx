@@ -66,10 +66,10 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     alignItems: 'center',
-    marginVertical: SPACING.md,
+    marginVertical: SPACING.xs,
   },
   inputContainer: {
-    width: '80%',
+    width: '90%',
     backgroundColor: COLORS.backgroundSecondary,
     borderRadius: SIZES.borderRadius,
     borderWidth: 1,
@@ -78,8 +78,8 @@ const styles = StyleSheet.create({
   input: {
     color: COLORS.gold,
     fontFamily: TYPOGRAPHY.input.fontFamily,
-    fontSize: TYPOGRAPHY.input.fontSize,
-    padding: SPACING.lg,
+    fontSize: 20,
+    padding: SPACING.md,
     textAlign: 'center',
   },
 });

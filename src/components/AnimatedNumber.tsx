@@ -65,8 +65,8 @@ const styles = StyleSheet.create({
   number: {
     color: COLORS.gold,
     fontFamily: TYPOGRAPHY.payout.fontFamily,
-    fontSize: TYPOGRAPHY.payout.fontSize,
-    letterSpacing: TYPOGRAPHY.payout.letterSpacing,
+    fontSize: 30,
+    letterSpacing: 1,
     ...SHADOWS.glow,
   },
 });

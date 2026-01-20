@@ -80,8 +80,8 @@ export function PassLineScreen() {
 const styles = StyleSheet.create({
   scrollContent: {
     alignItems: 'center',
-    paddingBottom: SPACING.xxl,
-    paddingTop: SPACING.sm,
+    paddingBottom: SPACING.md,
+    paddingTop: SPACING.xs,
   },
 });
 

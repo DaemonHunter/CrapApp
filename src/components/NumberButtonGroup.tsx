@@ -97,20 +97,20 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: SPACING.md,
+    marginVertical: SPACING.xs,
   },
   label: {
     color: COLORS.text,
     fontFamily: TYPOGRAPHY.label.fontFamily,
-    fontSize: TYPOGRAPHY.label.fontSize,
-    marginVertical: SPACING.md,
+    fontSize: 16,
+    marginBottom: SPACING.sm,
   },
   buttonContainer: {
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'center',
     flexWrap: 'wrap',
-    gap: SPACING.sm,
+    gap: SPACING.xs,
   },
   button: {
     alignItems: 'center',
@@ -118,8 +118,8 @@ const styles = StyleSheet.create({
     borderRadius: SIZES.borderRadius,
     height: SIZES.pointButton.height,
     justifyContent: 'center',
-    marginHorizontal: SPACING.xs,
-    padding: SPACING.md,
+    marginHorizontal: 2,
+    padding: SPACING.sm,
     width: SIZES.pointButton.width,
     borderWidth: 1,
     borderColor: COLORS.border,
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: COLORS.white,
     fontFamily: TYPOGRAPHY.button.fontFamily,
-    fontSize: TYPOGRAPHY.label.fontSize,
+    fontSize: 16,
     textAlign: 'center',
   },
 });
